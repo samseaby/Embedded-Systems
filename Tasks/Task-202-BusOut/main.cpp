@@ -9,15 +9,13 @@
 // DigitalOut grn(TRAF_GRN1_PIN);
 // DigitalOut yel(TRAF_YEL1_PIN);
 // DigitalOut red(TRAF_RED1_PIN,1);
-BusOut leds(TRAF_RED1_PIN, TRAF_YEL1_PIN, TRAF_GRN1_PIN);
+BusOut leds(TRAF_RED1_PIN, TRAF_YEL1_PIN, TRAF_GRN1_PIN, PB_0, PB_7, PB_14);
 
 int main()
 {
-    while (true) {
-        leds = 0;   //Binary 000
-        wait_us(500000);
-        leds = 7;   //Binary 111
-        wait_us(500000);    
+    for (int i = 0; i <= 63; i++) {
+        leds = 1;   //Binary 000000
+        wait_us(500000);  
     }
 }
 

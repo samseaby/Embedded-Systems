@@ -18,6 +18,7 @@ TimerCompat tmr_flash;
 // IT IS FUNDAMENTALLY FLAWED (AND INCOMPLETE)
 //
 //
+int redState = 0;
 
 int main()
 {
@@ -26,18 +27,20 @@ int main()
 
     while (true) {
 
+        if (tmr_flash.read_ms() > 500){
+            tmr_flash.reset();
+            //Toggle Yellow LED
+            ledYel = !ledYel;
+            ledRed = redState;
+        }
+
         //Wait for switch press and release (by BLOCKING)
-        while (SW2.read() == 0);
-        ledRed = !ledRed;
-        wait_us(300000);
+        if (SW2.read() == 1 && tmr_flash.read_ms() > 50){
+            redState = !redState;
+        }
+    
 
-        while (SW2.read() == 1);
-        wait_us(300000);        
 
-        //Toggle Yellow LED
-        ledYel = !ledYel;
-        while (tmr_flash.read_ms() < 500);
-        tmr_flash.reset();
     }
 }
 
