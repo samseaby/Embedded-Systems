@@ -38,6 +38,9 @@ public:
     void setValue(string strVal) {
         _real = stod(strVal);
     }
+    void setValue(DoubleNumber u) {
+        _real = u.getValue();
+    }
 
     double getValue() {
         return _real;
