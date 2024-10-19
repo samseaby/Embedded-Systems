@@ -63,6 +63,8 @@ public:
     ComplexNumber operator+(ComplexNumber& u) {
         ComplexNumber result;
 
+        result._real = this->_real + u._real;
+        result._imag = this->_imag + u._real;
         //TO BE DONE
 
         return result;
