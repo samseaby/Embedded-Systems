@@ -10,6 +10,7 @@ AnalogIn pot(AN_POT_PIN);
 
 //Defines an object with a fixed-size internal buffer
 RunningMean<uint16_t, double, 4> buf4;
+RunningMean<uint16_t, double, 64> buf5;
 
 int main()
 {
@@ -22,9 +23,11 @@ int main()
  
         //Add sample to buffer.
         buf4 += uPot;
+        buf5 += uPot;
 
         //Output running mean
-        cout << "Mean: " << buf4 << endl;
+        cout << "buf4 Mean: " << buf4 << endl;
+        cout << "buf5 Mean: " << buf5 << endl;
         wait_us(500000);
     }
 }

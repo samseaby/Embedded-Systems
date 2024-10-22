@@ -22,7 +22,7 @@ uint32_t print_memory_info() {
 
 int main()
 {
-    //Not how much heap space we have at the start
+    //Note how much heap space we have at the start
     print_memory_info();
 
     // ********* TEST 1 - SINGLE OBJECT *********
