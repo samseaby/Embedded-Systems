@@ -33,7 +33,7 @@ void worker_thread1()
     mutex.unlock();
 }
 
-//Same as workder_thread1
+//Same as worker_thread1
 void worker_thread2()
 {
     mutex.lock();
